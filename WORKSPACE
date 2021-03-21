@@ -30,3 +30,9 @@ go_rules_dependencies()
 go_register_toolchains(version = "1.16")
 
 gazelle_dependencies()
+
+new_local_repository(
+    name = "libopus",
+    build_file = "@//thirdparty/opus:BUILD.opus",
+    path = "/usr",
+)

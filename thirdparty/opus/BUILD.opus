@@ -1,0 +1,41 @@
+load("@rules_cc//cc:defs.bzl", "cc_library", "cc_import")
+
+cc_library(
+    name = "libopus",
+    hdrs = [
+        "//:include/opus/opus.h",
+        "//:include/opus/opus_defines.h",
+        "//:include/opus/opus_multistream.h",
+        "//:include/opus/opus_projection.h",
+        "//:include/opus/opus_types.h",
+        "//:include/opus/opusfile.h",
+    ],
+    strip_include_prefix = "include/opus",
+    deps = [
+        "//:libopusfile_private",
+        "//:libopusurl_private",
+        "//:libopus_private",
+    ],
+    visibility = ["//visibility:public"],
+)
+
+cc_import(
+    name = "libopus_private",
+    static_library = "//:lib/x86_64-linux-gnu/libopus.a",
+    shared_library = "//:lib/x86_64-linux-gnu/libopus.so",
+    visibility = ["//visibility:private"],
+)
+
+cc_import(
+    name = "libopusfile_private",
+    static_library = "//:lib/libopusfile.a",
+    shared_library = "//:lib/libopusfile.so",
+    visibility = ["//visibility:private"],
+)
+
+cc_import(
+    name = "libopusurl_private",
+    static_library = "//:lib/libopusurl.a",
+    shared_library = "//:lib/libopusurl.so",
+    visibility = ["//visibility:private"],
+)
