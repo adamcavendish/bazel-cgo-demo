@@ -1,0 +1,38 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "opus_v2",
+    srcs = [
+        "callbacks.c",
+        "decoder.go",
+        "encoder.go",
+        "errors.go",
+        "opus.go",
+        "stream.go",
+        "stream_errors.go",
+        "streams_map.go",
+    ],
+    cgo = True,
+    cdeps = ["@libopus//:libopus"], # keep
+    importpath = "gopkg.in/hraban/opus.v2",
+    visibility = ["//visibility:public"],
+)
+
+alias(
+    name = "go_default_library",
+    actual = ":opus_v2",
+    visibility = ["//visibility:public"],
+)
+
+go_test(
+    name = "opus_v2_test",
+    srcs = [
+        "decoder_test.go",
+        "encoder_test.go",
+        "opus_test.go",
+        "stream_test.go",
+        "utils_test.go",
+    ],
+    data = glob(["testdata/**"]),
+    embed = [":opus_v2"],
+)

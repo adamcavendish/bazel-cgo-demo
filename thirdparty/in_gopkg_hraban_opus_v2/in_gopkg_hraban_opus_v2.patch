@@ -1,0 +1,10 @@
+--- BUILD.bazel
++++ BUILD.bazel
+@@ -13,6 +13,7 @@
+         "streams_map.go",
+     ],
+     cgo = True,
++    cdeps = ["@libopus//:libopus"], # keep
+     importpath = "gopkg.in/hraban/opus.v2",
+     visibility = ["//visibility:public"],
+ )
