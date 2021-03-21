@@ -1,0 +1,25 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "demo",
+    srcs = ["opus2pcm.go"],
+    importpath = "github.com/adamcavendish/bazel-cgo-demo/demo",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//buffer",
+        "//header",
+        "@in_gopkg_hraban_opus_v2//:opus_v2",
+    ],
+)
+
+go_library(
+    name = "convert",
+    srcs = ["opus2pcm.go"],
+    importpath = "github.com/adamcavendish/bazel-cgo-demo/convert",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//buffer",
+        "//header",
+        "@in_gopkg_hraban_opus_v2//:opus_v2",
+    ],
+)

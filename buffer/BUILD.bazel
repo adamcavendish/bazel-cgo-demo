@@ -1,0 +1,8 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "buffer",
+    srcs = ["fs2bs.go"],
+    importpath = "github.com/adamcavendish/bazel-cgo-demo/buffer",
+    visibility = ["//visibility:public"],
+)
