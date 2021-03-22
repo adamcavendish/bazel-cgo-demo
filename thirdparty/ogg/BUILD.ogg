@@ -1,0 +1,8 @@
+load("@rules_cc//cc:defs.bzl", "cc_import")
+
+cc_import(
+    name = "libogg",
+    static_library = "//:lib/x86_64-linux-gnu/libogg.a",
+    shared_library = "//:lib/x86_64-linux-gnu/libogg.so",
+    visibility = ["//visibility:public"],
+)

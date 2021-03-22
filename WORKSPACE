@@ -36,3 +36,9 @@ new_local_repository(
     build_file = "@//thirdparty/opus:BUILD.opus",
     path = "/usr",
 )
+
+new_local_repository(
+    name = "libogg",
+    build_file = "@//thirdparty/ogg:BUILD.ogg",
+    path = "/usr",
+)

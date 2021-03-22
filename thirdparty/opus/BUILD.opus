@@ -15,6 +15,7 @@ cc_library(
         "//:libopusfile_private",
         "//:libopusurl_private",
         "//:libopus_private",
+        "@libogg//:libogg",
     ],
     visibility = ["//visibility:public"],
 )
